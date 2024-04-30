@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Browser Extension Translator</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Xtensions | Localizer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Browser Extension Translator</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">1. Upload Extension</h5>
+            <p class="card-text">The zip file should include a manifest.json file in its root directory. If the manifest.json file specifies a default_locale, it would be used for translation.</p>
+            <div class="text-center">
+              <input type="file" id="uploadZip" accept=".zip" style="display: none;">
+              <button class="btn btn-primary" id="uploadBtn">Upload .zip</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">2. Translate</h5>
+            <p class="card-text">Translate extension to all 52 supported languages on the Chrome Webstore or select target locales.</p>
+            <p id="defaultLocale"></p>
+            <div class="text-center">
+              <button id="translateBtn" class="btn btn-primary" disabled>Begin translation</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">3. Download</h5>
+            <p class="card-text">Click download to save your translated extension.</p>
+            <div class="text-center">
+              <button id="downloadBtn" class="btn btn-primary" disabled>Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h4>How to view your extension in other languages</h4>
+        <h5>On the Chrome Webstore</h5>
+        <ol>
+          <li>Navigate to the Chrome Webstore.</li>
+          <li>Find your extension's listing.</li>
+          <li>Click on the language dropdown menu.</li>
+          <li>Select the desired language to view the localized extension details.</li>
+        </ol>
+        <h5>In the Chrome Browser</h5>
+        <ol>
+          <li>Open the Chrome browser settings.</li>
+          <li>Go to the "Advanced" section and click on "Languages".</li>
+          <li>Add or select the desired language.</li>
+          <li>Restart the browser to apply the language changes.</li>
+          <li>The localized extension will be displayed in the selected language.</li>
+        </ol>
+      </div>
+      <div class="col-md-6">
+        <h4>The benefits of translating browser extensions</h4>
+        <div class="accordion" id="benefitsAccordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h3 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Expanding user base and market reach globally
+                </button>
+              </h3>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#benefitsAccordion">
+              <div class="card-body">
+                Translating extensions allows developers to reach a wider global audience. Users are more likely to adopt and use extensions that are available in their native language. Localization enables extensions to penetrate new markets and gain a competitive edge.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Enhancing user experience and satisfaction through localization
+                </button>
+              </h3>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#benefitsAccordion">
+              <div class="card-body">
+                Providing localized versions of extensions improves user experience and satisfaction. Users can interact with the extension in their preferred language, making it more intuitive and user-friendly. Localized extensions demonstrate a commitment to serving diverse user needs and preferences.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Boosting downloads, ratings, and revenue potential
+                </button>
+              </h3>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#benefitsAccordion">
+              <div class="card-body">
+                Extensions available in multiple languages often experience a significant increase in downloads and installations. Localized extensions tend to receive higher ratings and positive reviews from users who appreciate the language support. Increased user adoption and satisfaction can lead to improved monetization opportunities.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <h4>References</h4>
+        <ul>
+          <li><a href="https://developer.chrome.com/docs/webstore/i18n/" target="_blank">Chrome Webstore Internationalization</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-5 py-3 bg-light text-center">
+    <p>&copy; 2023 xtensions.net. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</body>
+</html>
