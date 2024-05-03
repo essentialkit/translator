@@ -50,6 +50,9 @@ const targetLocales = [
   "zh-TW",
 ];
 
+
+const defaultLocales = ["en", "es", "zh_CN", "hi", "ar"];
+
 const x1 = "QUl6YVN5QktjRTNkNjVXVU";
 const x2 = "Z6VDJFTTlQSnJrZUtINFZDcThzelBn";
 
@@ -408,6 +411,58 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
     document.getElementById(cardId).classList.add("active");
   }
+
+  // Function to handle the change event of the locale checkboxes
+  function handleLocaleCheckboxChange() {
+    var selectedLocales = getSelectedLocales();
+    if (selectedLocales.length > 5) {
+      this.checked = false;
+      displayLocaleNotice(getSelectedLocales());
+    } else {
+      hideLocaleNotice();
+      updateSelectedLocales(selectedLocales);
+    }
+  }
+
+  // Function to display the locale notice
+  function displayLocaleNotice(selectedLocales) {
+    var localeNotice = document.getElementById("localeNotice");
+    localeNotice.innerHTML =
+      "You can only select up to 5 locales at a time (for now due to resource constraints). Selected: " +
+      selectedLocales.join(", ");
+    localeNotice.style.display = "block";
+  }
+
+  // Function to hide the locale notice
+  function hideLocaleNotice() {
+    document.getElementById("localeNotice").style.display = "none";
+  }
+
+  // Function to update the selected locales display
+  function updateSelectedLocales(selectedLocales) {
+    document.getElementById("selectedLocales").textContent =
+      "Target Locales: " + selectedLocales.join(", ");
+  }
+
+  // Function to set the default locales checked
+  function setDefaultLocalesChecked() {
+    var checkboxes = document.querySelectorAll(
+      '#localesList input[type="checkbox"]'
+    );
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = defaultLocales.includes(checkbox.value);
+    });
+    updateSelectedLocales(getSelectedLocales());
+  }
+
+  document
+    .querySelectorAll('#localesList input[type="checkbox"]')
+    .forEach(function (checkbox) {
+      checkbox.addEventListener("change", handleLocaleCheckboxChange);
+    });
+
+  // Set the default locales checked on page load
+  setDefaultLocalesChecked();
 
   // Event listeners
   document

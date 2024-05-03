@@ -84,7 +84,7 @@
         <div class="card mb-4" id="translateCard">
           <div class="card-body">
             <h5 class="card-title">2. Translate</h5>
-            <p class="card-text">Translate extension to all 52 supported languages on the Chrome Webstore or <a href="#" id="selectLocalesLink">select target locales</a>.</p>
+            <p class="card-text">Translate extension to any of the 52 supported languages on the Chrome Webstore by <a href="#" id="selectLocalesLink">selecting target locales</a>.</p>
             <div id="localesList" class="locale-list bg-light border pl-3 pr-3 ml-n3 mr-n3" style="display: none;">
               <a id="deselectAllBtn" class="mt-2 d-block">Deselect All</a>
               <div class="form-check">
@@ -309,6 +309,8 @@
               </div>
             </div>
             <p id="defaultLocale" class="mt-2"></p>
+            <p id="selectedLocales" class="mt-2"></p>
+            <div id="localeNotice" class="alert alert-warning mt-2" style="display: none;"></div>
             <div class="text-center">
               <button id="translateBtn" class="btn btn-primary" disabled>Begin translation</button>
             </div>
